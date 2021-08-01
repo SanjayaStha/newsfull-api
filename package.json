@@ -1,0 +1,33 @@
+{
+  "name": "newsfull-api",
+  "version": "1.0.0",
+  "description": "Newsfull is the professional b2b platform for news agency and journalists",
+  "main": "app.js",
+  "scripts": {
+    "start": "node -r esm ./src/app.js",
+    "dev": "nodemon -r esm ./src/app.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "20",
+    "trusted",
+    "api",
+    "nodejs"
+  ],
+  "author": "Akhil Chhetri",
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
+    "esm": "^3.2.25",
+    "express": "^4.17.1",
+    "helmet": "^4.6.0",
+    "joi": "^17.4.0",
+    "mongoose": "^5.13.2",
+    "socket.io": "^4.1.2"
+  },
+  "devDependencies": {
+    "eslint": "^7.30.0",
+    "nodemon": "^2.0.9"
+  }
+}
