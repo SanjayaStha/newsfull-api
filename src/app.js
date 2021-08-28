@@ -15,5 +15,5 @@ const server = new Server({
 
 server.start((e) => {
 	if (e) return console.log(e);
-	console.log(`20 Trusted server running at http://${host}:${port}`);
+	console.log(`Newsfull server running at http://${host}:${port}`);
 });
