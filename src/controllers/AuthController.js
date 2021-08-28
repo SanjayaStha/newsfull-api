@@ -9,6 +9,7 @@ const uuid = require("uuid");
 
 exports.userLogin = (req, res) => {
   const { email, password } = req.body;
+  console.log({email, password})
   if (!email || !email.length) {
     return res.status(400).json({ error: "email cannot be blank" });
   }
@@ -18,9 +19,11 @@ exports.userLogin = (req, res) => {
 
   User.findOne({ email: email })
     .then((user) => {
-      if (user) {
-        if (user.email_verified) {
-          if (bcrypt.compareSync(password, user.password)) {
+      if(user) {
+        console.log(user)
+
+        // if (user.email_verified) {
+          if (bcrypt.compare(password, user.password)) {
             const accessToken = jwt.sign(
               { email: user.email },
               accessTokenSecret
@@ -46,13 +49,13 @@ exports.userLogin = (req, res) => {
               message: "Incorrect login credentials",
             });
           }
-        } else {
-          return res.status(400).send({
-            status: "error",
-            message:
-              "Email not verified yet. Please check your mail for verification link.",
-          });
-        }
+        // } else {
+        //   return res.status(400).send({
+        //     status: "error",
+        //     message:
+        //       "Email not verified yet. Please check your mail for verification link.",
+        //   });
+        // }
       } else {
         return res.status(400).send({
           status: "error",
